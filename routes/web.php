@@ -41,3 +41,28 @@ Route::get("/gallery/cat", function () {
     return view("test/cat", compact("cat"));
 });
 
+Route::get("/teacher" , function (){
+	return view("teacher");
+});
+
+Route::get("/student" , function (){
+	return view("student");
+});
+
+Route::get("/theme" , function (){
+	return view("theme");
+});
+
+
+// Route Template Inheritance
+Route::get("/teacher/inheritance", function () {
+    return view("teacher-inheritance");
+});
+Route::get("/student/inheritance", function () {
+    return view("student-inheritance");
+});
+
+
+Route::get('/tables', function () {
+    return view('tables');
+});
