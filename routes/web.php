@@ -66,3 +66,36 @@ Route::get("/student/inheritance", function () {
 Route::get('/tables', function () {
     return view('tables');
 });
+
+
+// Route::get("/display/create", [ DisplayController.class , "create" ]);
+
+use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\Covid19Controller;
+
+Route::get("/myprofile/create",[ MyProfileController::class , "create" ]);
+Route::get("/myprofile/{id}/edit", [ MyProfileController::class , "edit" ] );
+Route::get("/myprofile/{id}", [ MyProfileController::class , "show" ]);
+Route::get( "/coronavirus" ,[ MyProfileController::class , "coronavirus" ] );
+// Route::get( "/coronavirus" , "MyProfileController@coronavirus" );
+
+Route::get( "/newgallery" , [ MyProfileController::class , "gallery" ] );
+Route::get( "/newgallery/ant" , [ MyProfileController::class , "ant" ] );
+Route::get( "/newgallery/bird" , [ MyProfileController::class , "bird" ] );
+
+Route::resource('/covid19', Covid19Controller::class );
+// Route::get('/covid19', [ Covid19Controller::class,"index" ]);
+// Route::post("/covid19",[ Covid19Controller::class , "store" ]);
+// Route::get("/covid19/create",[ Covid19Controller::class , "create" ]);
+// Route::get('/covid19/{id}',[ Covid19Controller::class,'show' ]);
+// Route::get("/covid19/{id}/edit", [ Covid19Controller::class , "edit" ]);
+// Route::patch("/covid19/{id}", [ Covid19Controller::class , "update" ]);
+// Route::delete('/covid19/{id}', [ Covid19Controller::class , 'destroy' ]);
+
+
+//ลองทำ
+Route::get('/covid19/show', [ Covid19Controller::class,"show" ]);
+
+
+
+
