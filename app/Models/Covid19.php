@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Covid19 extends Model
 {
+
+    //week05
     use HasFactory;
  
     //ชื่อตารางในฐานข้อมูล

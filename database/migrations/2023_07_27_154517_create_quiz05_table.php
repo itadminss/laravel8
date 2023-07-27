@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('covid19s', function (Blueprint $table) {
+        Schema::create('quiz05s', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-
             //week05
-            $table->date('date')->nullable();
-            $table->string('country')->nullable();
-            $table->integer('total')->nullable();
-            $table->integer('active')->nullable();
-            $table->integer('death')->nullable();
-            $table->integer('recovered')->nullable();
+            $table->integer('item');
+            $table->string('fishname');
+            $table->float('weight');
+            $table->date('saledate');
+            $table->text('remark');
+            
+
         });
     }
 
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('covid19s');
+        Schema::dropIfExists('quiz05s');
     }
 };

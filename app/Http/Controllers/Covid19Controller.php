@@ -15,7 +15,7 @@ class Covid19Controller extends Controller
      */
     public function index(Request $request)
     {
-        //
+        //week05
         // $sql = "select * from covid19s";
 	  
   	    // $covid19s = DB::select($sql, []);
@@ -115,7 +115,7 @@ class Covid19Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //week05
         $requestData = $request->all();        
         $covid19 = Covid19::findOrFail($id);
         $covid19->update($requestData);

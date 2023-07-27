@@ -15,6 +15,7 @@
     </tr>
     @foreach($covid19s as $item)
     <tr>
+        {{-- week05 --}}
         <td>{{ $item->date }}</td>
         <td>{{ $item->country }}</td>
         <td>{{ number_format( $item->total) }}</td>
