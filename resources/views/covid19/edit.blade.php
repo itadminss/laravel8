@@ -1,7 +1,7 @@
 @extends('inheritance/bootstrap-theme')
 
 @section('content')
-
+{{-- week05 --}}
 <h1>Edit Covid19 Recrod #{{ $covid19->id }}</h1>
 
 <form method="POST" action="{{ url('/covid19/' . $covid19->id) }}" enctype="multipart/form-data" style="width:50%">

@@ -1,4 +1,3 @@
-
 @extends('inheritance/bootstrap-theme')
 
 @section('content')
