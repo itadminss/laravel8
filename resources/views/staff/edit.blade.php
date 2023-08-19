@@ -43,7 +43,7 @@
                 <strong>Photo: </strong>
                 <input type="file" name="photo" class="form-control " value="{{ $staff->photo }}" >
                 <br>
-                <img src="{{ $staff->photo }}" height="150" class="rounded" />
+                <img src="{{$staff->photo }}" height="150" class="rounded" />
             </div>
             
         </div>
