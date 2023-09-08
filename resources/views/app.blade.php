@@ -9,13 +9,14 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==">
 
         <!-- Scripts -->
-        @routes
-        @vite(['resources/js/app.js'])
-        @inertiaHead
+         
+        @vite(['resources/js/app.js','resources/css/app.css'])
+        {{-- @inertiaHead --}}
     </head>
     <body class="font-sans antialiased">
-        @inertia
+        @yield('content');
     </body>
 </html>
