@@ -142,4 +142,48 @@ Route::resource('profile', ProfileController::class);
 Route::resource('user', UserController::class);
 Route::resource('vehicle', VehicleController::class);
 
+
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\QuotationDetailController;
  
+// Route::resource('customer', 'CustomerController');
+// Route::resource('quotation', 'QuotationController');
+// Route::resource('quotation-detail', 'QuotationDetailController');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('customer', CustomerController::class);
+    Route::get('quotation/{id}/pdf', [QuotationController::class, 'pdf']);
+    // Route::get('quotation/{id}/pdf', [QuotationController::class, 'pdf']);
+    Route::resource('quotation', QuotationController::class);
+    Route::resource('quotation-detail', QuotationDetailController::class);
+});
+
+use Barryvdh\DomPDF\Facade\Pdf;
+
+Route::get('/test/pdf', function(){
+    $a = "hello";
+    $b = "world";
+    $c = "ทดสอบภาษาไทย";
+    $pdf = Pdf::loadView('testpdf', compact('a','b','c'));
+    return $pdf->stream();
+});
+
+use App\Http\Controllers\LeaveRequestController;
+use App\Http\Controllers\LeaveTypeController;
+
+// Route::resource('leave-request', 'LeaveRequestController');
+// Route::resource('leave-type', 'LeaveTypeController');
+
+Route::middleware(['auth'])->group(function () {
+    Route::middleware(['role:admin,guest'])->group(function () {
+        Route::resource('leave-request', LeaveRequestController::class)->except(['edit','update']);
+    });
+    Route::middleware(['role:admin'])->group(function () {
+        Route::resource('leave-request', LeaveRequestController::class)->only(['edit','update']);
+        Route::resource('leave-type', LeaveTypeController::class);
+        Route::get("dashboard-leave", function () {
+            return view("dashboard-leave");
+        });
+    });
+});

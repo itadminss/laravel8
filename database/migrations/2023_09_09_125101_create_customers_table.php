@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateProfilesTable extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,15 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('no')->nullable();
-            $table->string('type')->nullable();
-            $table->date('issue_date')->nullable();
-            $table->date('expire_date')->nullable();
             $table->string('name')->nullable();
-            $table->date('birth_date')->nullable();
-            $table->string('id_no')->nullable();
+            $table->string('organization_name')->nullable();
+            $table->text('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->text('remark')->nullable();
             $table->integer('user_id')->nullable();
             });
     }
@@ -33,6 +32,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('profiles');
+        Schema::drop('customers');
     }
 }

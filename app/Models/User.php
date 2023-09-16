@@ -65,5 +65,10 @@ class User extends Authenticatable
     public function vehicles(){
         return $this->hasMany(Vehicle::class,'user_id','id');
     }
+    public function leaveRequest()
+    {
+        return $this->hasMany(LeaveRequest::class, 'user_id');
+    }
+
 
 }
