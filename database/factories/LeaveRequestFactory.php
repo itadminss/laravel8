@@ -10,7 +10,7 @@ use App\Models\User;
  */
 class LeaveRequestFactory extends Factory
 {
-    use HasFactory;
+  
     /**
      * Define the model's default state.
      *
@@ -18,7 +18,8 @@ class LeaveRequestFactory extends Factory
      */
     public function definition()
     {
-        $date = $this->faker->dateTimeThisYear('+6 months');
+        // $date = $this->faker->dateTimeThisYear('+3 months');
+        $date = $this->faker->dateTimeThisYear()+new Date('Ymd');
 
         return [
             //

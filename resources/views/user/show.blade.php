@@ -30,9 +30,19 @@
                                     <tr><th> Name </th><td> {{ $user->name }} </td></tr><tr><th> Email </th><td> {{ $user->email }} </td></tr><tr><th> Email Verified At </th><td> {{ $user->email_verified_at }} </td></tr><tr><th> Password </th><td> {{ $user->password }} </td></tr><tr><th> Remember Token </th><td> {{ $user->remember_token }} </td></tr><tr><th> Role </th><td> {{ $user->role }} </td></tr>
                                 </tbody>
                             </table>
+                            
                             @php
-                        $vehicle = $user->vehicles()->where("brand","Honda")->orderBy("year","desc")->get()->toQuery()->paginate(6);
-                        @endphp
+                            if ($user->vehicles()->count()>0) {
+                                $vehicle = $user->vehicles()->where("brand","Honda")->orderBy("year","desc")->get()->toQuery()->paginate(6);
+                            }                                
+                             
+                           @endphp
+                           
+   
+                              
+                                
+                       
+                        
 
                             <table class="table">
                                 <thead>
@@ -43,6 +53,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @if(($user->vehicles()->count()>0))
                                 @foreach($vehicle as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
@@ -62,9 +73,16 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @endif
+                               
                                 </tbody>
                             </table>
+                            @if(($user->vehicles()->count()>0))
                             <div class="pagination-wrapper"> {!! $vehicle->appends(['search' => Request::get('search')])->render() !!} </div>
+                           @endif
+                                
+                            
+                           
                         </div>
 
 

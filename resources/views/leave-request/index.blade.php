@@ -3,16 +3,16 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
+            {{-- @include('admin.sidebar') --}}
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Leaverequest</div>
                     <div class="card-body">
                         <a href="{{ url('/leave-request/create') }}" class="btn btn-success btn-sm" title="Add New LeaveRequest">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
-
+                        
                         <form method="GET" action="{{ url('/leave-request') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
@@ -40,7 +40,10 @@
                                         <td>{{ $item->user_id }}</td><td>{{ $item->leave_type_name }}</td><td>{{ $item->start_date }}</td><td>{{ $item->end_date }}</td><td>{{ $item->total_leave }}</td><td>{{ $item->status }}</td><td>{{ $item->comments }}</td><td>{{ $item->approver_id }}</td>
                                         <td>
                                             <a href="{{ url('/leave-request/' . $item->id) }}" title="View LeaveRequest"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+
+                                            @if(Auth()->user()->role == "admin")
                                             <a href="{{ url('/leave-request/' . $item->id . '/edit') }}" title="Edit LeaveRequest"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            @endif
 
                                             <form method="POST" action="{{ url('/leave-request' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}

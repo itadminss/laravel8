@@ -5,6 +5,8 @@ use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\Covid19Controller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\LeaveRequestController;
+use App\Http\Controllers\LeaveTypeController;
  
 
 /*
@@ -66,7 +68,7 @@ Route::get( "/gallery" , function(){
     
     
     Route::get('/tables', function () {
-        return view('tables');
+        return view('intables');
     });
     
     
@@ -169,8 +171,7 @@ Route::get('/test/pdf', function(){
     return $pdf->stream();
 });
 
-use App\Http\Controllers\LeaveRequestController;
-use App\Http\Controllers\LeaveTypeController;
+
 
 // Route::resource('leave-request', 'LeaveRequestController');
 // Route::resource('leave-type', 'LeaveTypeController');
