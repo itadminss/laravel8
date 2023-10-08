@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\User;
+
+use App\models\Post;
+ 
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -71,9 +74,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
+         
         $user = User::findOrFail($id);
+        $post = $user->posts()->get();
 
-        return view('user.show', compact('user'));
+        return view('user.show', compact('user','post'));
     }
 
     /**

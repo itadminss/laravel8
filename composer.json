@@ -17,6 +17,8 @@
         "laravel/socialite": "^5.8",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
+        "livewire/livewire": "*",
+        "realrashid/sweet-alert": "^7.1",
         "socialiteproviders/line": "^4.1",
         "tightenco/ziggy": "^1.0"
     },

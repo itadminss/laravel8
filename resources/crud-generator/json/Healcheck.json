@@ -1,0 +1,25 @@
+{
+    "fields":
+    [
+        {
+            "name":"student_id",
+            "type":"integer"
+        },
+        {
+            "name":"date",
+            "type":  "date"
+        },
+        {
+            "name":"week",
+            "type":"string"
+        },
+        {
+            "name":"result",
+            "type":"string"
+        },
+        {
+            "name":"detail",
+            "type":"text"
+        }
+    ]
+}

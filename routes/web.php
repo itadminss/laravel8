@@ -7,6 +7,11 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\LeaveRequestController;
 use App\Http\Controllers\LeaveTypeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PositionController;
+use App\Http\Controllers\InspectController;
+use App\Http\Controllers\HealcheckController;
+use App\Http\Controllers\StudentController;
  
 
 /*
@@ -120,11 +125,11 @@ Route::get( "/gallery" , function(){
     Route::resource('/staff', StaffController::class );
 ////new
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('student');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
@@ -188,3 +193,27 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 });
+
+Route::resource('post', PostController::class);
+
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\CategoryController;
+
+
+// Route::resource('movie', 'MovieController');
+// Route::resource('category', 'CategoryController');
+Route::resource('movie', MovieController::class);
+Route::resource('category', CategoryController::class);
+Route::get("movie-livewire", function () {
+    return view("movie-livewire");
+});
+
+Route::get("counter",function(){
+    return view("counter");
+});
+
+
+Route::resource('position', PositionController::class);
+Route::resource('healcheck', HealcheckController::class);
+Route::resource('inspect', InspectController::class);
+Route::resource('student', StudentController::class);

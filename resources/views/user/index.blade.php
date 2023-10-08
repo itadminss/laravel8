@@ -27,7 +27,7 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-hove">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -42,7 +42,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($user as $item)
-                                    <tr>
+                                    <tr >
                                         <td class="text-nowrap">{{ $loop->iteration }}</td>
                                         <td class="text-nowrap">{{ $item->name }}</td>
                                         <td class="text-nowrap">{{ $item->email }}</td>

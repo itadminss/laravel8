@@ -71,11 +71,9 @@ class VehicleController extends Controller
      */
     public function show($id)
     {
-        if($id){
-            $vehicle = Vehicle::findOrFail($id)->oldest();
-        }else{
-            $vehicle='';
-        }
+         
+            $vehicle = Vehicle::findOrFail($id);
+        
         
 
         return view('vehicle.show', compact('vehicle'));

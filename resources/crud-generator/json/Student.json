@@ -1,0 +1,20 @@
+{
+    "fields":[
+        {
+            "name":"name",
+            "type":"string"
+        },
+        {
+            "name":"date",
+            "type":"date"
+        },
+        {
+            "name":"gender",
+            "type":"string"
+        },
+        {
+            "name":"class",
+            "type":"string"
+        }
+    ]
+}
